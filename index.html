@@ -270,9 +270,22 @@
     .day-right { padding: 10px 14px; }
     .timeline li { grid-template-columns: 52px 1fr; }
   }
+
+  .langbar {
+    display: flex; justify-content: flex-end; gap: 6px;
+    max-width: 900px; margin: 0 auto 12px;
+  }
+  .langbar a {
+    font-size: 11px; text-decoration: none; padding: 4px 12px;
+    border-radius: 100px; border: 0.5px solid #E5E4DE;
+    background: #FFFFFF; color: #666;
+  }
+  .langbar a.active { background: #1A1A1A; color: #FFFFFF; border-color: #1A1A1A; }
 </style>
 </head>
 <body>
+
+<div class="langbar"><a href="./" class="active">中文</a><a href="en/">English</a></div>
 
 <div class="header">
   <h1>澳新 14 天最终行程 v11</h1>

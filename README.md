@@ -2,7 +2,9 @@
 
 2026 年 12 月澳大利亚 & 新西兰 14 天旅行行程页面。
 
-**在线查看:** https://nli31.github.io/anz-trip/
+**在线查看 / View online:**
+- 中文 — https://nli31.github.io/anz-trip/
+- English — https://nli31.github.io/anz-trip/en/
 
 ## 行程概览
 
@@ -17,4 +19,4 @@
 
 ## 关于本仓库
 
-`index.html` 是一个完整的单文件页面,样式内嵌,无外部依赖,通过 GitHub Pages 发布。
+`index.html`(中文)和 `en/index.html`(English)各自是完整的单文件页面,共用同一套内嵌样式,无外部依赖,通过 GitHub Pages 发布。页面右上角可切换语言。
