@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Australia &amp; New Zealand · 14-Day Itinerary v11 · Dec 16–31, 2026</title>
+<title>Australia &amp; New Zealand · 14-Day Itinerary v15 · Dec 16–31, 2026</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -281,13 +281,66 @@
     background: #FFFFFF; color: #666;
   }
   .langbar a.active { background: #1A1A1A; color: #FFFFFF; border-color: #1A1A1A; }
+
+  /* ─── English layout tuning ───────────────────────────────────
+     Latin text is wider and wraps differently from CJK. The base
+     sheet was sized for 2-character labels (上午 / 下午 / 傍晚);
+     English equivalents ("Afternoon", "Xmas dinner") overflow those
+     columns and break the grid alignment. Widened + Latin-first font. */
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter,
+                 "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.5;
+  }
+  h1 { letter-spacing: -0.015em; }
+  .subtitle { line-height: 1.55; }
+
+  /* left rail: "Queenstown" / "Christmas Eve" need more room than 宿皇后镇 */
+  .day-card { grid-template-columns: 96px 1fr; }
+  .day-left { padding: 12px 7px; }
+  .day-stay { font-size: 8.5px; padding: 3px 7px; line-height: 1.35; }
+  .day-tag  { font-size: 8.5px; padding: 3px 7px; }
+  .day-date { font-variant-numeric: tabular-nums; }
+
+  /* timeline: the main fix — 60px cannot hold an English time label */
+  .timeline li {
+    grid-template-columns: 92px 1fr;
+    gap: 10px;
+    line-height: 1.5;
+  }
+  .time-label {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.01em;
+    hyphens: none;
+    word-break: keep-all;
+  }
+  .timeline li > *:last-child { overflow-wrap: break-word; }
+
+  /* long flight strings wrap instead of overflowing the pill */
+  .flight-line { line-height: 1.5; max-width: 100%; }
+  .hotel-line  { line-height: 1.45; }
+  .day-title   { line-height: 1.35; letter-spacing: -0.005em; }
+
+  .tip, .success { line-height: 1.5; }
+  .summary-table td, .summary-table th { line-height: 1.45; }
+
+  .langbar {
+    display: flex; justify-content: flex-end; gap: 6px;
+    max-width: 900px; margin: 0 auto 12px;
+  }
+  .langbar a {
+    font-size: 11px; text-decoration: none; padding: 4px 12px;
+    border-radius: 100px; border: 0.5px solid #E5E4DE;
+    background: #FFFFFF; color: #666;
+  }
+  .langbar a.active { background: #1A1A1A; color: #FFFFFF; border-color: #1A1A1A; }
 </style><body>
 
 <div class="langbar"><a href="../">中文</a><a href="./" class="active">English</a></div>
 
 <div class="header">
-  <h1>Australia &amp; New Zealand — 14-Day Itinerary v11</h1>
-  <p class="subtitle">Depart LAX Dec 16, 2026 · Return from Auckland Dec 31, 2026<br>Sydney (2n) → Cairns (2n) → Melbourne (3n) → Queenstown (2n) → Tekapo (2n) → Auckland (2n)</p>
+  <h1>Australia &amp; New Zealand — 14-Day Itinerary v15</h1>
+  <p class="subtitle">Depart SNA Dec 16, 2026 (via SFO) · Auckland → LAX Dec 31, 2026<br>Sydney (2n) → Cairns (2n) → Melbourne (3n) → Queenstown (2n) → Tekapo (2n) → Auckland (2n)</p>
   <div class="stats">
     <div class="stat"><div class="stat-num">14 days</div><div class="stat-label">Total trip</div></div>
     <div class="stat"><div class="stat-num">6/6</div><div class="stat-label">Flights booked</div></div>
@@ -306,26 +359,31 @@
 <div class="day-card syd">
   <div class="day-left">
     <div class="day-num">Day 1</div>
-    <div class="day-week">Wed</div>
+    <div class="day-week">Fri</div>
     <div class="day-date">12/18</div>
     <div class="day-stay">Sydney</div>
   </div>
   <div class="day-right">
-    <div class="day-title"><span class="city-tag">Sydney</span>Arrival · Harbour classics</div>
+    <div class="day-title"><span class="city-tag">Sydney</span>Arrival · Harbour classics · 🎬 Doomsday</div>
+    <div class="flight-line">✈️ 12/16 Alaska AS1458 SNA 5:29pm → SFO 6:57pm · Qantas QF74 SFO 8:45pm → SYD 6:25am (12/18, T1)</div>
     <div class="hotel-line">🏨 Hyatt Regency Sydney (Darling Harbour)</div>
     <ul class="timeline">
-      <li><span class="time-label">Midday</span>Land in Sydney on the long-haul from LAX, taxi to hotel ~30min</li>
-      <li><span class="time-label">Afternoon</span><b>Sydney Opera House</b> (exterior) + stroll <b>Circular Quay</b></li>
-      <li><span class="time-label">Evening</span><b>Harbour Bridge walkway</b> (free) + harbour night views</li>
-      <li><span class="time-label">Dinner</span>Seafood in <b>The Rocks</b> historic quarter</li>
+      <li><span class="time-label">6:25am</span>Land at Sydney T1 — immigration + bags (~1h)</li>
+      <li><span class="time-label">~8am</span>Taxi to the hotel (~25min), drop bags / ask about early check-in</li>
+      <li><span class="time-label">Morning</span>Breakfast and coffee → <b>Sydney Opera House</b> (exterior) + <b>Circular Quay</b> + <b>Harbour Bridge walkway</b> (free)</li>
+      <li><span class="time-label">Early PM</span>Back to the hotel to check in, <b>nap 1–2h</b> — no longer, or the jet lag wins</li>
+      <li><span class="time-label">5pm</span>Early dinner or something light, then head for the cinema</li>
+      <li><span class="time-label">6pm</span>🎬 <b>Nanbo — Avengers: Doomsday</b> (opening day) ✅ tickets booked</li>
+      <li><span class="time-label">~9pm</span>After the film, late bite at <b>The Rocks</b> or Darling Harbour + harbour at night</li>
     </ul>
+    <span class="tip">🎬 Tickets already booked · It's a very long first day after a morning landing — take the afternoon nap, or you'll sleep through the 6pm screening</span>
   </div>
 </div>
 
 <div class="day-card syd">
   <div class="day-left">
     <div class="day-num">Day 2</div>
-    <div class="day-week">Thu</div>
+    <div class="day-week">Sat</div>
     <div class="day-date">12/19</div>
     <div class="day-stay">Sydney</div>
   </div>
@@ -333,7 +391,7 @@
     <div class="day-title"><span class="city-tag">Sydney</span>Zoo · Bondi · coastal walk</div>
     <ul class="timeline">
       <li><span class="time-label">Morning</span>Ferry from Circular Quay to <b>Taronga Zoo</b> (the 12min crossing is half the attraction), half-day visit</li>
-      <li><span class="time-label">Lunch</span>Back to the city — Circular Quay or The Rocks</li>
+      <li><span class="time-label">Lunch</span>Back in the city — Circular Quay or The Rocks</li>
       <li><span class="time-label">Afternoon</span>Train to <b>Bondi Beach</b>, walk the <b>Bondi→Coogee coastal path</b> (6km, ~2h)</li>
       <li><span class="time-label">Evening</span>Photos at Icebergs pool / cafés in Bronte</li>
     </ul>
@@ -344,29 +402,30 @@
 <div class="day-card cnx">
   <div class="day-left">
     <div class="day-num">Day 3</div>
-    <div class="day-week">Fri</div>
+    <div class="day-week">Sun</div>
     <div class="day-date">12/20</div>
     <div class="day-stay">Cairns</div>
   </div>
   <div class="day-right">
     <div class="day-title"><span class="city-tag">Cairns</span>Arrival · Kuranda rainforest</div>
-    <div class="flight-line">✈️ SYD → CNS early flight · ~3h · arrive ~9am</div>
+    <div class="flight-line">✈️ Virgin VA1409 SYD 6:10am (T2) → CNS 8:15am (T2)</div>
     <div class="hotel-line">🏨 The Reef Hotel Casino Cairns - Handwritten Collection (Accor 5-star, near the Esplanade + Reef Fleet Terminal)</div>
     <ul class="timeline">
-      <li><span class="time-label">9am</span>Arrive Cairns, drop bags at the hotel</li>
+      <li><span class="time-label">4:45am</span>Leave the Sydney hotel for the airport (domestic T2)</li>
+      <li><span class="time-label">8:15am</span>Arrive Cairns, taxi to the hotel and drop bags (~15min)</li>
       <li><span class="time-label">10am</span><b>Skyrail Rainforest Cableway</b> over the canopy (7.5km)</li>
       <li><span class="time-label">Midday</span><b>Kuranda village</b>: rainforest markets + Indigenous culture + lunch</li>
       <li><span class="time-label">Afternoon</span>Return on the <b>Kuranda Scenic Railway</b> heritage train</li>
       <li><span class="time-label">Evening</span>Unwind at <b>Palm Cove</b>, or head back to town and rest</li>
     </ul>
-    <span class="tip">⚠️ If you're tired, skip Palm Cove and turn in early — save energy for the Reef tomorrow</span>
+    <span class="tip">⚠️ Early night on 12/19 — it's a 4:30am start · If you're tired, skip Palm Cove and save your energy for the Reef tomorrow</span>
   </div>
 </div>
 
 <div class="day-card cnx">
   <div class="day-left">
     <div class="day-num">Day 4</div>
-    <div class="day-week">Sat</div>
+    <div class="day-week">Mon</div>
     <div class="day-date">12/21</div>
     <div class="day-stay">Cairns</div>
   </div>
@@ -386,13 +445,13 @@
 <div class="day-card mel">
   <div class="day-left">
     <div class="day-num">Day 5</div>
-    <div class="day-week">Sun</div>
+    <div class="day-week">Tue</div>
     <div class="day-date">12/22</div>
     <div class="day-stay">Melbourne</div>
   </div>
   <div class="day-right">
     <div class="day-title"><span class="city-tag">Melbourne</span>Arrival · half-day of city culture</div>
-    <div class="flight-line">✈️ Jetstar 9:45am → 2:15pm · 3h30 direct</div>
+    <div class="flight-line">✈️ Jetstar JQ33 CNS 9:45am (T1) → MEL 2:15pm (T2) · direct</div>
     <div class="hotel-line">🏨 Grand Hyatt Melbourne (123 Collins St · Free Tram Zone)</div>
     <ul class="timeline">
       <li><span class="time-label">6:30am</span>Up, check out of Cairns, taxi to the airport</li>
@@ -408,7 +467,7 @@
 <div class="day-card mel">
   <div class="day-left">
     <div class="day-num">Day 6</div>
-    <div class="day-week">Mon</div>
+    <div class="day-week">Wed</div>
     <div class="day-date">12/23</div>
     <div class="day-stay">Melbourne</div>
   </div>
@@ -427,22 +486,22 @@
 <div class="day-card mel">
   <div class="day-left">
     <div class="day-num">Day 7</div>
-    <div class="day-week">Tue</div>
+    <div class="day-week">Thu</div>
     <div class="day-date">12/24</div>
     <div class="day-stay">Melbourne</div>
-    <div class="day-tag tag-xmas">Christmas Eve</div>
+    <div class="day-tag tag-xmas">Xmas Eve</div>
   </div>
   <div class="day-right">
     <div class="day-title"><span class="city-tag">Melbourne</span>Christmas market + penguin parade 🐧</div>
     <ul class="timeline">
-      <li><span class="time-label">Morning</span><b>Queen Victoria Market Christmas market</b> (9am-12pm)</li>
+      <li><span class="time-label">Morning</span><b>Queen Victoria Market Christmas market</b> (9am–12pm)</li>
       <li><span class="time-label">Midday</span>Christmas lunch on Collins St or Flinders Lane</li>
       <li><span class="time-label">2:45pm</span><b>Phillip Island half-day tour</b> departs (pickup near the hotel)</li>
       <li><span class="time-label">Evening</span>Chocolate Factory + <b>The Nobbies</b> headland (Seal Rocks)</li>
       <li><span class="time-label">8:30pm</span><b>Penguin Parade</b> — the world's smallest, the little blue penguin</li>
       <li><span class="time-label">11pm</span>Back to Melbourne</li>
     </ul>
-    <span class="tip">🔴 Confirm the Christmas Eve tour is actually running before booking</span>
+    <span class="success">✅ Penguin tour booked via TripAdvisor</span>
   </div>
 </div>
 
@@ -456,14 +515,14 @@
 <div class="day-card qt">
   <div class="day-left">
     <div class="day-num">Day 8</div>
-    <div class="day-week">Wed</div>
+    <div class="day-week">Fri</div>
     <div class="day-date">12/25</div>
     <div class="day-stay">Queenstown</div>
     <div class="day-tag tag-xmas">Christmas</div>
   </div>
   <div class="day-right">
     <div class="day-title"><span class="city-tag">Queenstown</span>Arrival · gondola · Christmas dinner 🎄</div>
-    <div class="flight-line">✈️ Virgin 8:00am → 1:10pm (NZ time) · direct</div>
+    <div class="flight-line">✈️ Virgin VA143 MEL 8:00am (T2) → ZQN 1:10pm (NZ time) · direct</div>
     <div class="hotel-line">🏨 Holiday Inn Express Queenstown</div>
     <ul class="timeline">
       <li><span class="time-label">6am</span>Up, check out of Melbourne</li>
@@ -471,7 +530,7 @@
       <li><span class="time-label">2:30pm</span>Check in, walk along the lake</li>
       <li><span class="time-label">Afternoon</span><b>Skyline Gondola</b> up Bob's Peak + <b>the Luge</b> (3 rides minimum)</li>
       <li><span class="time-label">Evening</span>Stroll <b>Queenstown Gardens</b> by the water</li>
-      <li><span class="time-label">Christmas dinner</span><b>Rata Restaurant</b> (book ahead) / queue at Fergburger</li>
+      <li><span class="time-label">Xmas dinner</span>Queue at <b>Fergburger</b> / somewhere near the hotel (Rata moved to 12/26)</li>
     </ul>
     <span class="tip">Daylight runs to ~9:30pm in December — an afternoon arrival still leaves 7 hours</span>
   </div>
@@ -480,7 +539,7 @@
 <div class="day-card qt">
   <div class="day-left">
     <div class="day-num">Day 9</div>
-    <div class="day-week">Thu</div>
+    <div class="day-week">Sat</div>
     <div class="day-date">12/26</div>
     <div class="day-stay">Queenstown</div>
   </div>
@@ -490,22 +549,22 @@
       <li><span class="time-label">Morning</span>Pick one: <b>Glenorchy / Paradise Valley</b> (half-day tour, LOTR filming sites) / NZone skydive / relax by the lake</li>
       <li><span class="time-label">Lunch</span>In Queenstown town centre</li>
       <li><span class="time-label">Afternoon</span>Pick one: <b>Arrowtown</b> (gold-rush village, afternoon tea) / Shotover Jet / TSS Earnslaw steamship</li>
-      <li><span class="time-label">Evening</span>Fergburger + the lakefront</li>
+      <li><span class="time-label">6pm</span><b>Dinner at Rata Restaurant</b> ✅ booked</li>
     </ul>
-    <span class="tip">Suggested: Glenorchy in the morning + Arrowtown for afternoon tea — covers both scenery and history</span>
+    <span class="success">✅ Rata booked for 6pm · Suggested day: Glenorchy in the morning, Arrowtown for afternoon tea, back into town in good time for dinner</span>
   </div>
 </div>
 
 <div class="day-card tp">
   <div class="day-left">
     <div class="day-num">Day 10</div>
-    <div class="day-week">Fri</div>
+    <div class="day-week">Sun</div>
     <div class="day-date">12/27</div>
     <div class="day-stay">Tekapo</div>
   </div>
   <div class="day-right">
     <div class="day-title"><span class="city-tag">Queenstown→Tekapo</span>🚗 Transfer day + free stargazing</div>
-    <div class="flight-line">🚗 Pick up car at Queenstown Airport → Tekapo (~4.5h; go via Cromwell to avoid the Crown Range)</div>
+    <div class="flight-line">🚗 Pick up the car at Queenstown Airport → Tekapo (~4.5h; go via Cromwell to avoid the Crown Range)</div>
     <div class="hotel-line">🏨 Lakeview Tekapo (single-level lake-view room)</div>
     <ul class="timeline">
       <li><span class="time-label">8am</span>Collect the car at Queenstown Airport, drive to Wanaka via Cromwell</li>
@@ -524,7 +583,7 @@
 <div class="day-card tp">
   <div class="day-left">
     <div class="day-num">Day 11</div>
-    <div class="day-week">Sat</div>
+    <div class="day-week">Mon</div>
     <div class="day-date">12/28</div>
     <div class="day-stay">Tekapo</div>
   </div>
@@ -544,17 +603,16 @@
     <span class="tip">The lupins may be in bloom in December · Two nights of stargazing means bad weather on one isn't a problem</span>
   </div>
 </div>
-
 <div class="day-card ak">
   <div class="day-left">
     <div class="day-num">Day 12</div>
-    <div class="day-week">Sun</div>
+    <div class="day-week">Tue</div>
     <div class="day-date">12/29</div>
     <div class="day-stay">Auckland</div>
   </div>
   <div class="day-right">
     <div class="day-title"><span class="city-tag">Tekapo→Christchurch→Auckland</span>Transfer</div>
-    <div class="flight-line">🚗 Tekapo→Christchurch Airport ~3.5h + ✈️ Air NZ 4:15pm → 5:40pm · car back before 3pm</div>
+    <div class="flight-line">🚗 Tekapo→Christchurch Airport ~3.5h + ✈️ Air NZ NZ558 CHC 4:15pm → AKL 5:40pm (domestic, Terminal D) · car back before 3pm</div>
     <div class="hotel-line">🏨 Cordis Auckland (Symonds St · Langham 5-star)</div>
     <ul class="timeline">
       <li><span class="time-label">8-9am</span>Morning walk by the lake + the church in early light</li>
@@ -572,7 +630,7 @@
 <div class="day-card ak">
   <div class="day-left">
     <div class="day-num">Day 13</div>
-    <div class="day-week">Mon</div>
+    <div class="day-week">Wed</div>
     <div class="day-date">12/30</div>
     <div class="day-stay">Auckland</div>
   </div>
@@ -593,22 +651,23 @@
 <div class="day-card ak">
   <div class="day-left">
     <div class="day-num">Day 14</div>
-    <div class="day-week">Tue</div>
+    <div class="day-week">Thu</div>
     <div class="day-date">12/31</div>
     <div class="day-stay">Fly to LAX</div>
     <div class="day-tag tag-nye">New Year's Eve</div>
   </div>
   <div class="day-right">
     <div class="day-title"><span class="city-tag">Auckland</span>New Year's Eve · heading home ✈️</div>
-    <div class="flight-line">✈️ AKL → LAX · evening departure · arrive the same day, crossing the date line</div>
+    <div class="flight-line">✈️ Air NZ NZ6 AKL 8:20pm (International, Terminal I) → LAX 11:25am (same day, 12/31, TBIT)</div>
     <ul class="timeline">
       <li><span class="time-label">Morning</span>Walk <b>Mission Bay beach</b></li>
       <li><span class="time-label">Lunch</span>Mission Bay or Britomart</li>
-      <li><span class="time-label">Afternoon</span>Pack, check out</li>
-      <li><span class="time-label">Afternoon</span>Taxi / SkyBus to AKL</li>
-      <li><span class="time-label">Evening</span>Fly to LAX (arriving in Los Angeles the same day, across the date line)</li>
+      <li><span class="time-label">Afternoon</span>Check out (bags can be stored), last look round Viaduct / Britomart</li>
+      <li><span class="time-label">~5:30pm</span>Taxi or SkyBus to AKL international terminal</li>
+      <li><span class="time-label">8:20pm</span>NZ6 departs</li>
+      <li><span class="time-label">11:25am</span>Land at LAX on the morning of 12/31 — in time for New Year's Eve at home</li>
     </ul>
-    <span class="success">New Zealand is among the first countries in the world to see the new year · a fitting finish</span>
+    <span class="success">Arrive in LA the same day, across the date line · Note the return lands at LAX, not SNA — arrange a pickup or transport back to Orange County</span>
   </div>
 </div>
 
@@ -616,9 +675,7 @@
 <div class="summary-section">
   <h2>🏨 Accommodation</h2>
   <table class="summary-table">
-    <thead>
-      <tr><th>Dates</th><th>City</th><th>Hotel</th><th>Status</th></tr>
-    </thead>
+    <thead><tr><th>Dates</th><th>City</th><th>Hotel</th><th>Status</th></tr></thead>
     <tbody>
       <tr><td>12/18–19</td><td>Sydney</td><td>Hyatt Regency Sydney</td><td class="status-ok">✓ Booked</td></tr>
       <tr><td>12/20–21</td><td>Cairns</td><td>The Reef Hotel Casino Cairns (Handwritten Collection)</td><td class="status-ok">✓ Booked</td></tr>
@@ -633,16 +690,14 @@
 <div class="summary-section">
   <h2>✈️ Flights</h2>
   <table class="summary-table">
-    <thead>
-      <tr><th>Date</th><th>Route</th><th>Flight</th><th>Status</th></tr>
-    </thead>
+    <thead><tr><th>Date</th><th>Route</th><th>Flight</th><th>Status</th></tr></thead>
     <tbody>
-      <tr><td>12/16</td><td>LAX → SYD</td><td>Long-haul</td><td class="status-ok">✓ Booked</td></tr>
-      <tr><td>12/20</td><td>SYD → CNS</td><td>Early flight</td><td class="status-ok">✓ Booked</td></tr>
-      <tr><td>12/22</td><td>CNS → MEL</td><td>Jetstar 9:45am → 2:15pm</td><td class="status-ok">✓ Booked</td></tr>
-      <tr><td>12/25</td><td>MEL → ZQN</td><td>Virgin 8:00am → 1:10pm</td><td class="status-ok">✓ Booked</td></tr>
-      <tr><td>12/29</td><td>CHC → AKL</td><td>Air NZ 4:15pm → 5:40pm</td><td class="status-ok">✓ Booked</td></tr>
-      <tr><td>12/31</td><td>AKL → LAX</td><td>Long-haul</td><td class="status-ok">✓ Booked</td></tr>
+      <tr><td>12/16</td><td>SNA → SFO → SYD</td><td>AS1458 5:29pm + QF74 8:45pm → 12/18 6:25am</td><td class="status-ok">✓ Booked</td></tr>
+      <tr><td>12/20</td><td>SYD → CNS</td><td>VA1409 6:10am → 8:15am</td><td class="status-ok">✓ Booked</td></tr>
+      <tr><td>12/22</td><td>CNS → MEL</td><td>JQ33 9:45am → 2:15pm</td><td class="status-ok">✓ Booked</td></tr>
+      <tr><td>12/25</td><td>MEL → ZQN</td><td>VA143 8:00am → 1:10pm</td><td class="status-ok">✓ Booked</td></tr>
+      <tr><td>12/29</td><td>CHC → AKL</td><td>NZ558 4:15pm → 5:40pm</td><td class="status-ok">✓ Booked</td></tr>
+      <tr><td>12/31</td><td>AKL → LAX</td><td>NZ6 8:20pm → 11:25am (same day)</td><td class="status-ok">✓ Booked</td></tr>
     </tbody>
   </table>
 </div>
@@ -670,9 +725,7 @@
 <div class="summary-section">
   <h2>📋 To-do list (by urgency)</h2>
   <table class="summary-table">
-    <thead>
-      <tr><th>Urgency</th><th>Item</th><th>Notes &amp; links</th></tr>
-    </thead>
+    <thead><tr><th>Urgency</th><th>Item</th><th>Notes &amp; links</th></tr></thead>
     <tbody>
       <tr>
         <td><span class="priority-high">Urgent</span></td>
@@ -680,19 +733,6 @@
         <td>Fills up fastest over Christmas — book 3 weeks ahead. Reef Magic (9am departure) or Silverswift<br>
         <a href="https://www.reefunlimited.com/reef-magic/" target="_blank">Reef Magic</a> ·
         <a href="https://www.viator.com/tours/Cairns-and-the-Tropical-North/Great-Barrier-Reef-Cruise-from-Cairns/d264-6321GBR2" target="_blank">Viator</a></td>
-      </tr>
-      <tr>
-        <td><span class="priority-high">Urgent</span></td>
-        <td><b>Rata Christmas dinner reservation (12/25)</b></td>
-        <td>Queenstown's most sought-after table at Christmas — book 2-4 weeks ahead<br>
-        <a href="https://www.ratadining.co.nz/" target="_blank">Rata</a></td>
-      </tr>
-      <tr>
-        <td><span class="priority-high">Urgent</span></td>
-        <td><b>Penguin parade half-day tour (12/24)</b></td>
-        <td>Confirm the Christmas Eve departure is running first. Leaves 2:45pm, ~AUD 100-150/person<br>
-        <a href="https://www.viator.com/tours/Melbourne/Phillip-Island-Little-Penguins-Parade-Evening-Tour/d384-2230M11" target="_blank">Viator</a> ·
-        <a href="https://autopiatours.com.au/eco-tours-australia/melbourne/phillip-island-tour/" target="_blank">Autopia Tours</a></td>
       </tr>
       <tr>
         <td><span class="priority-med">Medium</span></td>
@@ -748,18 +788,29 @@
 </div>
 
 <div class="summary-section">
+  <h2>🎟️ Booked activities</h2>
+  <table class="summary-table">
+    <tbody>
+      <tr><td>12/18 6pm</td><td>Avengers: Doomsday (Nanbo)</td><td>Sydney</td><td class="status-ok">✓ Tickets booked</td></tr>
+      <tr><td>12/24</td><td>Phillip Island penguin parade tour</td><td>TripAdvisor</td><td class="status-ok">✓ Booked</td></tr>
+      <tr><td>12/26 6pm</td><td>Dinner at Rata Restaurant (Queenstown)</td><td>2 people</td><td class="status-ok">✓ Reserved</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="summary-section">
   <h2>💡 Key reminders</h2>
-  <ul style="font-size:12px; color:#444; line-height:1.8; padding-left:20px;">
+  <ul style="font-size:12px; color:#444; line-height:1.7; padding-left:20px;">
     <li><b>Stargazing on 12/27</b>: free beside the Church of the Good Shepherd — no need to spend $260 on Mt John</li>
     <li><b>Car return on 12/29</b>: must be at Christchurch Airport before 3pm — leave Tekapo 8-9am to keep a buffer</li>
-    <li><b>Three early starts in a row</b>: 12/20 (fly to Cairns), 12/21 (reef boat at 7am), 12/22 (fly to Melbourne, up at 6:30am) — get to bed early while in Cairns</li>
-    <li><b>Christmas Eve penguin tour</b>: confirm the 12/24 departure is running before booking</li>
+    <li><b>Three early starts in a row</b>: 12/20 (fly to Cairns, 4:45am), 12/21 (reef boat at 7am), 12/22 (fly to Melbourne, up at 6:30am) — get to bed early while in Cairns</li>
+    <li><b>Rata dinner 6pm on 12/26</b>: don't let Glenorchy / Arrowtown run late — be back in town in good time</li>
     <li><b>Great Barrier Reef</b>: 12/19–1/17 is peak season, AUD $10/person fuel surcharge, book 3 weeks ahead to avoid a full boat</li>
   </ul>
 </div>
 
 <div class="footer">
-  Australia &amp; New Zealand — 14-day itinerary · December 2026
+  Australia &amp; New Zealand — 14-day itinerary v15 · December 2026
 </div>
 
 </body>
